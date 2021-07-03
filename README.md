@@ -1,8 +1,8 @@
 # Calculator
 A calculator for complex functions and is privacy friendly.
 
-![version](https://img.shields.io/badge/version-v1.0.0-blue)
-[![download](https://img.shields.io/badge/download-apk-blue)](https://github.com/CYB3R-G0D/Calculator-app/releases/tag/v1.0.0)
+[![version](https://img.shields.io/badge/version-v1.1.0-blue?style=for-the-badge)](https://github.com/CYB3R-G0D/Calculator-app/releases/tag/v1.1.0)
+[![download](https://img.shields.io/badge/download-apk-blue?style=for-the-badge)](https://github.com/CYB3R-G0D/Calculator-app/releases/)
 
 ## Features
 
