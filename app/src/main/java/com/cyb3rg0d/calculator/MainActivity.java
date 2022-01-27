@@ -1,24 +1,39 @@
 package com.cyb3rg0d.calculator;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,bdot,bpi,bequal,bplus,bmin,bmul,bdiv,binv,bsqrt,bsquare,bfact,bln,blog,btan,bcos,bsin,bb1,bb2,bc,bac;
     TextView tvmain,tvsec;
     String pi = "3.14159265359";
+    ArrayList<String> history = new ArrayList<>();
+    ArrayAdapter<String> adapter;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Vibrator vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         b1 = findViewById(R.id.b1);
         b2 = findViewById(R.id.b2);
         b3 = findViewById(R.id.b3);
@@ -192,6 +207,7 @@ public class MainActivity extends AppCompatActivity {
         bac.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vibe.vibrate(100);
                 tvmain.setText("0");
                 tvsec.setText("");
             }
@@ -241,6 +257,7 @@ public class MainActivity extends AppCompatActivity {
         bplus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vibe.vibrate(100);
 
                 if (tvmain.getText().equals("")) {
 
@@ -255,6 +272,7 @@ public class MainActivity extends AppCompatActivity {
         bmin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vibe.vibrate(100);
 
                 if (tvmain.getText().equals("")) {
 
@@ -269,6 +287,7 @@ public class MainActivity extends AppCompatActivity {
         bmul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vibe.vibrate(100);
 
                 if (tvmain.getText().equals("")) {
 
@@ -282,6 +301,7 @@ public class MainActivity extends AppCompatActivity {
         bdiv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vibe.vibrate(100);
 
                 if (tvmain.getText().equals("")) {
 
@@ -295,6 +315,7 @@ public class MainActivity extends AppCompatActivity {
         bsqrt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vibe.vibrate(100);
 
                 if (tvmain.getText().equals("")) {
 
@@ -322,6 +343,7 @@ public class MainActivity extends AppCompatActivity {
         bpi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vibe.vibrate(100);
                 tvsec.setText(bpi.getText());
                 tvmain.setText(tvmain.getText()+pi);
             }
@@ -329,24 +351,28 @@ public class MainActivity extends AppCompatActivity {
         bsin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vibe.vibrate(100);
                 tvmain.setText("sin"+tvmain.getText());
             }
         });
         bcos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vibe.vibrate(100);
                 tvmain.setText("cos"+tvmain.getText());
             }
         });
         btan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vibe.vibrate(100);
                 tvmain.setText("tan"+tvmain.getText());
             }
         });
         binv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vibe.vibrate(100);
                 if (tvmain.getText().equals("")) {
 
                     tvmain.setText("0"+"^"+"(-1)");
@@ -359,6 +385,7 @@ public class MainActivity extends AppCompatActivity {
         bfact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vibe.vibrate(100);
 
                 if (tvmain.getText().equals("")) {
 
@@ -381,6 +408,7 @@ public class MainActivity extends AppCompatActivity {
         bsquare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vibe.vibrate(100);
 
                 if (tvmain.getText().equals("")) {
 
@@ -398,12 +426,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 tvmain.setText("ln"+tvmain.getText());
+                vibe.vibrate(100);
             }
         });
         blog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 tvmain.setText("log"+tvmain.getText());
+                vibe.vibrate(100);
             }
         });
         bequal.setOnClickListener(new View.OnClickListener() {
@@ -411,6 +441,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int len = tvmain.getText().length();
                 String s = tvmain.getText().toString();
+                vibe.vibrate(100);
 
 
                 if (tvmain.getText().equals("")) {
@@ -480,10 +511,61 @@ public class MainActivity extends AppCompatActivity {
                     double result = eval(replacedstr);
                     tvmain.setText(String.valueOf(result));
                     tvsec.setText(val);
+                    history.add(String.valueOf(val));;
                 }
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_item,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int item_id = item.getItemId();
+        if (item_id==R.id.about){
+            Intent intent = new Intent(this, About.class);
+            startActivity(intent);
+        } else if (item_id==R.id.history){
+            AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+            View rowList = getLayoutInflater().inflate(R.layout.row, null);
+            listView = rowList.findViewById(R.id.listView);
+            adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, history);
+            listView.setAdapter(adapter);
+            adapter.notifyDataSetChanged();
+            if(adapter.getCount()>0)
+            {
+                alertDialog.setTitle("History");
+                alertDialog.setPositiveButton("clear", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        history.clear();
+                        Toast.makeText(MainActivity.this,"History cleared",Toast.LENGTH_LONG).show();
+                    }
+                });
+                alertDialog.setView(rowList);
+                AlertDialog dialog = alertDialog.create();
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        String  itemValue    = (String) listView.getItemAtPosition(position);
+                        dialog.dismiss();
+                        tvsec.setText(null);
+                        tvmain.setText(itemValue);
+                    }
+                });
+                dialog.show();
+            }
+            else
+            {
+                Toast.makeText(this, "History is empty", Toast.LENGTH_SHORT).show();
+            }
+        }
+        return true;
     }
 
     //factorial function

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="bottom|center_horizontal"
+    android:layout_marginBottom="1dip"
+    tools:context=".About">
+
+    <LinearLayout
+        android:id="@+id/support"
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent"
+        android:gravity="center_horizontal"
+        android:orientation = "vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Support"
+            android:textSize="30dp"/>
+
+        <ListView
+            android:id = "@+id/supportList"
+            android:layout_width = "fill_parent"
+            android:layout_height = "wrap_content"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="bottom"
+        android:gravity="center_horizontal"
+        android:text="Coded with 💜 by Cyb3rG0d" />
+
+</RelativeLayout>
