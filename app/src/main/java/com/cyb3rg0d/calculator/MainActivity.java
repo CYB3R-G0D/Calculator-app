@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> history = new ArrayList<>();
     ArrayAdapter<String> adapter;
     ListView listView;
+    boolean vibrateSwitch = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -207,7 +208,11 @@ public class MainActivity extends AppCompatActivity {
         bac.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                vibe.vibrate(100);
+                if(vibrateSwitch==true){
+                    vibe.vibrate(100);
+                } else {
+                    vibe.vibrate(0);
+                }
                 tvmain.setText("0");
                 tvsec.setText("");
             }
@@ -257,7 +262,11 @@ public class MainActivity extends AppCompatActivity {
         bplus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                vibe.vibrate(100);
+                if(vibrateSwitch==true){
+                    vibe.vibrate(100);
+                } else {
+                    vibe.vibrate(0);
+                }
 
                 if (tvmain.getText().equals("")) {
 
@@ -272,7 +281,11 @@ public class MainActivity extends AppCompatActivity {
         bmin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                vibe.vibrate(100);
+                if(vibrateSwitch==true){
+                    vibe.vibrate(100);
+                } else {
+                    vibe.vibrate(0);
+                }
 
                 if (tvmain.getText().equals("")) {
 
@@ -287,7 +300,11 @@ public class MainActivity extends AppCompatActivity {
         bmul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                vibe.vibrate(100);
+                if(vibrateSwitch==true){
+                    vibe.vibrate(100);
+                } else {
+                    vibe.vibrate(0);
+                }
 
                 if (tvmain.getText().equals("")) {
 
@@ -301,7 +318,11 @@ public class MainActivity extends AppCompatActivity {
         bdiv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                vibe.vibrate(100);
+                if(vibrateSwitch==true){
+                    vibe.vibrate(100);
+                } else {
+                    vibe.vibrate(0);
+                }
 
                 if (tvmain.getText().equals("")) {
 
@@ -315,7 +336,11 @@ public class MainActivity extends AppCompatActivity {
         bsqrt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                vibe.vibrate(100);
+                if(vibrateSwitch==true){
+                    vibe.vibrate(100);
+                } else {
+                    vibe.vibrate(0);
+                }
 
                 if (tvmain.getText().equals("")) {
 
@@ -343,7 +368,11 @@ public class MainActivity extends AppCompatActivity {
         bpi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                vibe.vibrate(100);
+                if(vibrateSwitch==true){
+                    vibe.vibrate(100);
+                } else {
+                    vibe.vibrate(0);
+                }
                 tvsec.setText(bpi.getText());
                 tvmain.setText(tvmain.getText()+pi);
             }
@@ -351,28 +380,44 @@ public class MainActivity extends AppCompatActivity {
         bsin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                vibe.vibrate(100);
+                if(vibrateSwitch==true){
+                    vibe.vibrate(100);
+                } else {
+                    vibe.vibrate(0);
+                }
                 tvmain.setText("sin"+tvmain.getText());
             }
         });
         bcos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                vibe.vibrate(100);
+                if(vibrateSwitch==true){
+                    vibe.vibrate(100);
+                } else {
+                    vibe.vibrate(0);
+                }
                 tvmain.setText("cos"+tvmain.getText());
             }
         });
         btan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                vibe.vibrate(100);
+                if(vibrateSwitch==true){
+                    vibe.vibrate(100);
+                } else {
+                    vibe.vibrate(0);
+                }
                 tvmain.setText("tan"+tvmain.getText());
             }
         });
         binv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                vibe.vibrate(100);
+                if(vibrateSwitch==true){
+                    vibe.vibrate(100);
+                } else {
+                    vibe.vibrate(0);
+                }
                 if (tvmain.getText().equals("")) {
 
                     tvmain.setText("0"+"^"+"(-1)");
@@ -385,7 +430,11 @@ public class MainActivity extends AppCompatActivity {
         bfact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                vibe.vibrate(100);
+                if(vibrateSwitch==true){
+                    vibe.vibrate(100);
+                } else {
+                    vibe.vibrate(0);
+                }
 
                 if (tvmain.getText().equals("")) {
 
@@ -408,7 +457,11 @@ public class MainActivity extends AppCompatActivity {
         bsquare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                vibe.vibrate(100);
+                if(vibrateSwitch==true){
+                    vibe.vibrate(100);
+                } else {
+                    vibe.vibrate(0);
+                }
 
                 if (tvmain.getText().equals("")) {
 
@@ -426,14 +479,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 tvmain.setText("ln"+tvmain.getText());
-                vibe.vibrate(100);
+                if(vibrateSwitch==true){
+                    vibe.vibrate(100);
+                } else {
+                    vibe.vibrate(0);
+                }
             }
         });
         blog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 tvmain.setText("log"+tvmain.getText());
-                vibe.vibrate(100);
+                if(vibrateSwitch==true){
+                    vibe.vibrate(100);
+                } else {
+                    vibe.vibrate(0);
+                }
             }
         });
         bequal.setOnClickListener(new View.OnClickListener() {
@@ -441,7 +502,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int len = tvmain.getText().length();
                 String s = tvmain.getText().toString();
-                vibe.vibrate(100);
+                if(vibrateSwitch==true){
+                    vibe.vibrate(100);
+                } else {
+                    vibe.vibrate(0);
+                }
 
 
                 if (tvmain.getText().equals("")) {
@@ -563,6 +628,17 @@ public class MainActivity extends AppCompatActivity {
             else
             {
                 Toast.makeText(this, "History is empty", Toast.LENGTH_SHORT).show();
+            }
+        }else if (item_id==R.id.vibrate){
+            if(item.isChecked())
+            {
+                item.setChecked(false);
+                vibrateSwitch = false;
+            }
+            else
+            {
+                item.setChecked(true);
+                vibrateSwitch = true;
             }
         }
         return true;
