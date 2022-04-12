@@ -336,20 +336,23 @@ public class MainActivity extends AppCompatActivity {
         bsqrt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(vibrateSwitch==true){
+                if (vibrateSwitch == true) {
                     vibe.vibrate(100);
                 } else {
                     vibe.vibrate(0);
                 }
+                try {
+                    if (tvmain.getText().equals("")) {
 
-                if (tvmain.getText().equals("")) {
+                        tvmain.setText("0");
+                    } else {
 
-                    tvmain.setText("0");
-                } else {
-
-                    String val = tvmain.getText().toString();
-                    double r = Math.sqrt(Double.parseDouble(val));
-                    tvmain.setText(String.valueOf(r));
+                        String val = tvmain.getText().toString();
+                        double r = Math.sqrt(Double.parseDouble(val));
+                        tvmain.setText(String.valueOf(r));
+                    }
+                } catch (Exception e) {
+                    tvmain.setText("Error");
                 }
             }
         });
@@ -436,21 +439,25 @@ public class MainActivity extends AppCompatActivity {
                     vibe.vibrate(0);
                 }
 
-                if (tvmain.getText().equals("")) {
+                try {
+                    if (tvmain.getText().equals("")) {
 
-                    tvmain.setText("0");
-                } else {
+                        tvmain.setText("0");
+                    } else {
 
-                    String val = tvmain.getText().toString();
-                    double r = Double.parseDouble((val));
-                    int i = Integer.parseInt(val) - 1;
+                        String val = tvmain.getText().toString();
+                        double r = Double.parseDouble((val));
+                        int i = Integer.parseInt(val) - 1;
 
-                    while (i > 0) {
-                        r = r * i;
-                        i--;
+                        while (i > 0) {
+                            r = r * i;
+                            i--;
+                        }
+
+                        tvmain.setText(r + "");
                     }
-
-                    tvmain.setText(r+"");
+                } catch (Exception e) {
+                    tvmain.setText("Error");
                 }
             }
         });
@@ -463,15 +470,19 @@ public class MainActivity extends AppCompatActivity {
                     vibe.vibrate(0);
                 }
 
-                if (tvmain.getText().equals("")) {
+                try {
+                    if (tvmain.getText().equals("")) {
 
-                    tvmain.setText("0");
-                } else {
+                        tvmain.setText("0");
+                    } else {
 
-                    double d = Double.parseDouble(tvmain.getText().toString());
-                    double square = d*d;
-                    tvmain.setText(String.valueOf(square));
-                    tvsec.setText(d+"²");
+                        double d = Double.parseDouble(tvmain.getText().toString());
+                        double square = d * d;
+                        tvmain.setText(String.valueOf(square));
+                        tvsec.setText(d + "²");
+                    }
+                } catch (Exception e) {
+                    tvmain.setText("Error");
                 }
             }
         });
@@ -507,76 +518,79 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     vibe.vibrate(0);
                 }
+                try {
+                    if (tvmain.getText().equals("")) {
 
+                        tvmain.setText("0");
+                    }
+                    else  if (s.charAt(len - 1) == '+') {
+                        tvmain.setText("0");
 
-                if (tvmain.getText().equals("")) {
+                    }
+                    else  if (s.charAt(len - 1) == '-') {
+                        tvmain.setText("0");
 
-                    tvmain.setText("0");
+                    }
+                    else  if (s.charAt(len - 1) == '×') {
+                        tvmain.setText("0");
+
+                    }
+                    else  if (s.charAt(len - 1) == '÷') {
+                        tvmain.setText("0");
+
+                    }
+                    else if (tvmain.getText().equals("sin")) {
+
+                        tvmain.setText("0");
+                    }
+                    else if (tvmain.getText().equals("cos")) {
+
+                        tvmain.setText("0");
+                    }
+                    else if (tvmain.getText().equals("tan")) {
+
+                        tvmain.setText("0");
+                    }
+                    else if (tvmain.getText().equals("log")) {
+
+                        tvmain.setText("0");
+                    }
+                    else if (tvmain.getText().equals("ln")) {
+
+                        tvmain.setText("0");
+                    }
+                    else if (tvmain.getText().equals("(")) {
+
+                        tvmain.setText("0");
+                    }
+                    else if (tvmain.getText().equals(")")) {
+
+                        tvmain.setText("0");
+                    }
+                    else if (tvmain.getText().equals("Infinity")) {
+
+                        tvmain.setText("Infinity");
+                    }
+                    else if (tvmain.getText().equals("-Infinity")) {
+
+                        tvmain.setText("-Infinity");
+                    }
+                    else if (tvmain.getText().equals("NaN")) {
+
+                        tvmain.setText("NaN");
+                    }
+                    else {
+
+                        String val = tvmain.getText().toString();
+                        String replacedstr = val.replace('÷','/').replace('×','*');
+                        double result = eval(replacedstr);
+                        tvmain.setText(String.valueOf(result));
+                        tvsec.setText(val);
+                        history.add(String.valueOf(val));;
+                    }
                 }
-                else  if (s.charAt(len - 1) == '+') {
-                    tvmain.setText("0");
-
-                }
-                else  if (s.charAt(len - 1) == '-') {
-                    tvmain.setText("0");
-
-                }
-                else  if (s.charAt(len - 1) == '×') {
-                    tvmain.setText("0");
-
-                }
-                else  if (s.charAt(len - 1) == '÷') {
-                    tvmain.setText("0");
-
-                }
-                else if (tvmain.getText().equals("sin")) {
-
-                    tvmain.setText("0");
-                }
-                else if (tvmain.getText().equals("cos")) {
-
-                    tvmain.setText("0");
-                }
-                else if (tvmain.getText().equals("tan")) {
-
-                    tvmain.setText("0");
-                }
-                else if (tvmain.getText().equals("log")) {
-
-                    tvmain.setText("0");
-                }
-                else if (tvmain.getText().equals("ln")) {
-
-                    tvmain.setText("0");
-                }
-                else if (tvmain.getText().equals("(")) {
-
-                    tvmain.setText("0");
-                }
-                else if (tvmain.getText().equals(")")) {
-
-                    tvmain.setText("0");
-                }
-                else if (tvmain.getText().equals("Infinity")) {
-
-                    tvmain.setText("Infinity");
-                }
-                else if (tvmain.getText().equals("-Infinity")) {
-
-                    tvmain.setText("-Infinity");
-                }
-                else if (tvmain.getText().equals("NaN")) {
-
-                    tvmain.setText("NaN");
-                }
-                else {
-
-                    String val = tvmain.getText().toString();
-                    String replacedstr = val.replace('÷','/').replace('×','*');
-                    double result = eval(replacedstr);
-                    tvmain.setText(String.valueOf(result));
-                    tvsec.setText(val);
-                    history.add(String.valueOf(val));;
+                catch(Exception e){
+                    tvmain.setText("Error");
                 }
             }
         });
