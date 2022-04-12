@@ -20,7 +20,7 @@ A calculator for complex functions and is privacy friendly.
 ## App Preview
 
 <div style="display:flex;">
-<img alt="App image" src="https://github.com/CYB3R-G0D/Calculator-app/raw/main/screenshot/screenshot01.jpg" width="30%">
-<img alt="App image" src="https://github.com/CYB3R-G0D/Calculator-app/raw/main/screenshot/screenshot02.jpg" width="30%">
-<img alt="App image" src="https://github.com/CYB3R-G0D/Calculator-app/raw/main/screenshot/screenshot03.jpg" width="30%">  
+<img alt="App image" src="https://github.com/CYB3R-G0D/Calculator-app/blob/main/fastlane/metadata/android/en-US/images/phoneScreenshots/1.jpg" width="30%">
+<img alt="App image" src="https://github.com/CYB3R-G0D/Calculator-app/blob/main/fastlane/metadata/android/en-US/images/phoneScreenshots/2.jpg" width="30%">
+<img alt="App image" src="https://github.com/CYB3R-G0D/Calculator-app/blob/main/fastlane/metadata/android/en-US/images/phoneScreenshots/3.jpg" width="30%">  
 </div> 
