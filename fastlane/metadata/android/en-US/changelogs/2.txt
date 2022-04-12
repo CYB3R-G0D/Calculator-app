@@ -1,0 +1,4 @@
+- Screen orientation as portrait
+- Themes based on system (Light/Dark)
+- Fixed factorial error
+- Fixed critical bugs

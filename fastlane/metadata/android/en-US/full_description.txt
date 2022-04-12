@@ -1,0 +1,1 @@
+Calculator is a privacy-friendly calculator for complex functions, coming with a simple user interface and, by default, a dark theme. It has no ads or unnecessary permissions.
